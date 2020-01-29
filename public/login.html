@@ -1,0 +1,35 @@
+<div id="front">
+<div class="container" id="main"></div>
+<div ng-include="'mainnav.html'"></div>
+<div class="row">
+    <div class="col-sm-12" id="topbuffer">
+        <div id="welcome-text">
+            <h1 id="site-name">M A S A A W O</h1>
+            <p id="subtitle">Login</p>
+        </div>
+    </div>
+    <div class="col-md-12" id="mainarea">
+        <form ng-submit="login()" id="auth_login">
+            <div id="loginform">
+                <small class="error" id="message" style="color: red;">{{ error_message }}</small>
+                <div class="form-group row">
+                        <label for="inputPassword" id="falselabel" class="col-sm-3 col-form-label">Phonenumber</label>
+                        <div class="col-sm-9">
+                                <input type="text" maxlength="10" class="form-control" id="falseinput" placeholder=".eg 07******** " ng-model="user.phonenumber" required/>
+                        </div>
+                </div>
+
+                <div class="form-group row">
+                        <label for="inputPassword" id="falselabel" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-9">
+                                <input type="password" class="form-control" id="falseinput" placeholder=".eg *********** " ng-model="user.password" required/>
+                        </div>
+                </div>
+                <button type="submit" id="login-submit" class="btn btn-primary" value="Login">Login</button>
+                </div>
+        </form>
+    </div>
+</div>
+</div>
+<div id="fin">
+	</div>

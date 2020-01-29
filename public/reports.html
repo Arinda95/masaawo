@@ -1,0 +1,89 @@
+<div id="translatebody">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light" id="nav">
+            <a class="navbar-brand" href="#!/dash">
+                <img src="images/logo.svg" width="30" height="30" alt=""/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <input class="form-control mr-sm-6" ng-model="q" id="searchtranslateinput" type="text" placeholder="Search">
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-right">
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/dash"><i class="fa fa-flag"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/reports"><i class="fa fa-star"></i></a>
+                        </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/messages"><i class="fa fa-envelope"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/reported"><i class="fa fa-warning"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/users"><i class="fa fa-user-circle"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/logger"><i class="fa fa-server"></i></a>
+                        </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+<div id="translatecontainer">
+    <br><br>
+    <p id="pagenote">Approved Plates : {{ countOff }}</p>
+    <div class="row">
+    <div id="itemp" class="col-sm-1 dropdown" dir-paginate="official in officials | filter:q | orderBy: 'approvedat':true | itemsPerPage: 48" data-toggle="modal" data-target="#exampleModal" ng-click="passToModal(official)">
+        <div id="itemheadp" class="row">
+            <p id="numberplate">{{official.numberPlate}}</p>
+        </div>
+        <div id="lower" class="row">
+        <p id="title" style="color:{{official.approved>0?'#EAC926':'purple'}}">{{official.approvedat | date:"h:mma 'on' MMM d, y"}}</p>
+        </div>
+    </div>
+
+</div>
+<br>
+<dir-pagination-controls id="pagecontrols"></dir-pagination-controls>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content" id="translatewindow">
+<div class="modal-header" id="translateheader">
+  <h5 class="modal-title" id="exampleModalLabel">{{ individualPlate.approvedat | date:"h:mma 'on' MMM d, y"}}</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closebutton">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" id="translatecontent">
+    <div id="row">
+
+            <div id="infospace">
+                <h4>{{ individualPlate.numberPlate }}</h4>
+            </div>
+            <form ng-submit="approve()" id="ht_translate">
+                <h4>Location: {{ individualPlate.location }}</h4>
+                <h4>Additional info: {{ individualPlate.additionalInfo }}</h4>
+            </form>
+    </div>
+</div>
+<div class="modal-footer" id="sc_translate">
+  <button type="button" id="false-submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="submit" id="false-submit" class="btn btn-primary" ng-show="individualPlate.approved == 1" ng-click="demote(individualPlate)" data-dismiss="modal">Demote</button>
+  <button type="submit" id="false-submit" class="btn btn-primary" ng-show="individualPlate.approved == 0" ng-click="promote(individualPlate)" data-dismiss="modal">Promote</button>
+</div>
+</div>
+</div>
+</div>

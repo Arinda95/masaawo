@@ -1,0 +1,79 @@
+<div id="front">
+    <div class="container" id="main"></div>
+    <div ng-include="'mainnav.html'"></div>
+    <div class="row">
+        <div class="col-sm-12" id="topbuffer">
+            <div id="welcome-text">
+                <h1 id="site-name">M A S A A W O</h1>
+                <p id="subtitle">Contact us</p>
+            </div>
+        </div>
+        <div class="col-md-12" id="mainareac">
+            <div id="contactarea" class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="header">
+                                <p class="head">Contact</p>
+                            </div>
+                            <div class="contact-module">
+                                <p>Massawo is a part of Epilogue UG</p>
+                                <p><i class="fa fa-map-marker"></i> Location</p>
+                                <p><i class="fa fa-phone"></i> Phonenumber</p>
+                                <p><i class="fa fa-envelope"></i> Email</p>
+                                <p><i class="fa fa-facebook"></i> Facebook</p>
+                                <p><i class="fa fa-twitter"></i> Twitter</p>
+                                <p><i class="fa fa-whatsapp"></i> Whatsapp</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="header">
+                                <p class="head">General Inquiries</p>
+                            </div>
+                            <form ng-submit="contact()">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="contact-module">
+                                            <div class="form-group row">
+                                                <label for="inputPassword" id="contactlabel" class="col-sm-3 col-form-label">Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" maxlength="10" class="form-control" id="contactinput" placeholder=".eg John Mukasa " ng-model="newmessage.name" required/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" id="contactlabel" class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="contactinput" placeholder=".eg user@email.com " ng-model="newmessage.email" required/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" id="contactlabel" class="col-sm-3 col-form-label">Type</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="contactinput" ng-model="newmessage.type" required>
+                                                    <option value="General">General Inquiry</option>
+                                                    <option value="Business">Business</option>
+                                                    <option value="Legal">Legal</option>
+                                                    <option value="Complaint">Complaint</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="contactinputa" rows="6" placeholder="Additional information" ng-model="newmessage.content" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="contactsubmit" class="btn btn-primary" value="Contact" data-toggle="modal" data-target=".bd-example-modal-sm">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<div id="fin">
+	</div>

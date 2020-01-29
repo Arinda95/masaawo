@@ -1,0 +1,39 @@
+<div id="front">
+<div class="container" id="main"></div>
+<div ng-include="'mainnav.html'"></div>
+<div class="row">
+    <div class="col-sm-12" id="topbuffer">
+        <div id="welcome-text">
+            <h1 id="site-name">M A S A A W O</h1>
+            <p id="subtitle">Report Vehicle</p>
+        </div>
+    </div>
+    <div class="col-md-12" id="mainarea">
+<form ng-submit="report()">
+    <div id="reportform">
+        <small class="error" id="message">{{ error_message }}</small>
+                <div class="form-group row">
+                        <label for="inputPassword" id="falselabel" class="col-sm-3 col-form-label">Numberplate</label>
+                        <div class="col-sm-9">
+                                <input type="text" maxlength="7" class="form-control" id="falseinputu" placeholder=".eg UAV323X " ng-model="addPlate.numberplate" required/>
+                        </div>
+                </div>
+
+                <div class="form-group row">
+                        <label for="inputPassword" id="falselabel" class="col-sm-3 col-form-label">Location</label>
+                        <div class="col-sm-9">
+                                <input type="test" class="form-control" id="falseinput" placeholder=".eg Nansana Kibuloka " ng-model="addPlate.location" required/>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <textarea class="form-control" id="falseinput" rows="3" placeholder="Additional information" ng-model="addPlate.additionalInfo" required></textarea>
+                </div>
+
+                <button type="submit" id="report-submit" class="btn btn-primary" value="Report" data-toggle="modal" data-target=".bd-example-modal-sm">Report</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<div id="fin">
+</div>

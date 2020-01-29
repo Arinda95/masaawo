@@ -1,0 +1,47 @@
+<div id="front">
+<div class="container" id="main"></div>
+<div ng-include="'mainnav.html'"></div>
+<div class="row">
+	  <div class="col-sm-12" id="topbuffer">
+		<div id="welcome-text">
+		<h1 id="site-name">M A S A A W O</h1>
+		<p id="subtitle">Keep public transport safe</p>
+		</div>
+	  </div>
+	  <div class="col-md-12" id="mainarea">
+		  <form ng-submit="search()">
+			  <div id="inputarea">
+			  <input type="text" id="numput" maxlength="7" placeholder="numberplate" ng-model="platenumber" onClick="this.setSelectionRange(0, this.value.length)"/>
+				<button type="submit" class="btn btn-primary btn-lg" id="search" value="Search"><i class="fa fa-search"></i></button>
+			</form>
+			  <div id="replyp">
+				<div>
+				<h2>SAFE <i class="fa fa-thumbs-o-up"></i></h2>
+				</div>
+				<div>
+				  <p>Not reported, stay vigilant</p>
+				</div>
+				</div>
+				<div id="replyn">
+					<div>
+					<h2>UNSAFE <i class="fa fa-thumbs-o-down"></i></h2>
+					</div>
+					<div>
+						<p>This Vehicle has been Reported</p>
+					</div>
+					</div>
+					<div id="replye">
+						<div>
+						<h2>Empty <i class="fa fa-exclamation-triangle"></i></h2>
+						</div>
+						<div>
+							<p>No numberplate provided</p>
+						</div>
+						</div>
+						<label class="form-check-label" for="exampleCheck1" id="formchecktext">By using, you agree to <a href="#!/tnc">terms and conditions of service</a></label>
+				</div>
+		</div>
+	</div>
+	</div>
+	<div id="fin">
+	</div>

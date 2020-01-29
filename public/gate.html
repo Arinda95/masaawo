@@ -1,0 +1,16 @@
+<div id="gatebody">
+    <div id="gatecontainer">
+        <img src="images/logo.svg">
+        <h2>Masaawo Platform Admin</h2>
+        <form ng-submit="login2()" id="ht_login">
+            <small class="error" id="message">{{ error_message }}</small>
+            <div class="form-group">
+                <input type="text" class="form-control" id="htphone" placeholder="Phone number" ng-model="user.phonenumber" required/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="htpass" placeholder="Password" ng-model="user.password" required/>
+            </div>
+            <button type="submit" id="false-submit" class="btn btn-primary" value="Login2">Access</button>
+        </form>
+    </div>
+</div>

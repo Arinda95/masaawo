@@ -1,0 +1,44 @@
+<div id="front">
+<div class="container" id="main"></div>
+<div ng-include="'mainnav.html'"></div>
+<div class="row">
+	  <div class="col-sm-12" id="topbuffer">
+		<div id="welcome-text">
+		<h1 id="site-name">M A S A A W O</h1>
+		<p id="subtitle">Report False Claim</p>
+		</div>
+	  </div>
+	  <div class="col-md-12" id="mainarea">
+		  <form ng-submit="falserep()">
+			  <div id="falseform">
+                                <div class="row">
+                                        <div class="col-sm-6">
+
+                                <div class="form-group row">
+                                        <label for="inputPassword" id="falselabel" class="col-sm-3 col-form-label">Numberplate</label>
+                                        <div class="col-sm-9">
+                                                <input type="text" maxlength="7" class="form-control" id="falseinput" placeholder="Licenseplate number" ng-model="falseplate.numberPlate">
+                                        </div>
+                                </div>
+                                        <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                <label class="form-check-label" for="exampleCheck1" id="formchecktext">By continuing you are agreeing to the <a href="#!/tnc">terms and conditions of service</a></label>
+                                                </div>
+                                                </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                        <div class="form-group">
+                                                <textarea class="form-control" id="falseinput" rows="5" placeholder="Additional information" ng-model="falseplate.content"></textarea>
+                                        </div>
+                                </div>
+                                </div>
+                                <button type="submit" id="false-submit" class="btn btn-primary" value="False" data-toggle="modal" data-target=".bd-example-modal-sm">Report</button>
+			  </div>
+		  </form>
+
+	  </div>
+        </div>
+</div>
+<div id="fin">
+</div>

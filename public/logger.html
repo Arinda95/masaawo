@@ -1,0 +1,126 @@
+<div id="translatebody">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light" id="nav">
+                <a class="navbar-brand" href="#!/dash">
+                    <img src="images/logo.svg" width="30" height="30" alt=""/>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <input class="form-control mr-sm-6" ng-model="q" id="searchtranslateinput" type="text" placeholder="Search">
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-right">
+                        <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/dash"><i class="fa fa-flag"></i></a>
+                        </li>
+                        <li class="nav-item" ng-show="authenticated">
+                                <a class="nav-link" id="menuelement" href="#!/reports"><i class="fa fa-star"></i></a>
+                            </li>
+                        <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/messages"><i class="fa fa-envelope"></i></a>
+                        </li>
+                        <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/reported"><i class="fa fa-warning"></i></a>
+                        </li>
+                        <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/users"><i class="fa fa-user-circle"></i></a>
+                        </li>
+                        <li class="nav-item" ng-show="authenticated">
+                                <a class="nav-link" id="menuelement" href="#!/logger"><i class="fa fa-server"></i></a>
+                            </li>
+                        <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <div id="translatecontainer">
+        <br><br>
+        <p id="pagenoteC">Searches : {{ searchCount }}</p>
+        <br>
+        <p id="pagenoteC">LeaderBoard</p>
+        <div class="row">
+            <div id="subtrend" class="col-md-4">
+                    <p id="trendhead">Peak Times</p>
+                    <br>
+                    <div class="row" id="statrow">
+                        <div class="col-md-5">
+                            <h1 id="statHead">Morning 6:00 - 10:00</h1>
+                        </div>
+                        <div class="col-md-7">
+                            <p id="statVal">{{ mornFigures }}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h1 id="statHead">Midday 11:00 - 13:00</h1>
+                        </div>
+                        <div class="col-md-7">
+                            <p id="statVal">{{ midFigures }}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h1 id="statHead">Afternoon 14:00 - 16:00</h1>
+                        </div>
+                        <div class="col-md-7">
+                            <p id="statVal">{{ afterFigures }}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h1 id="statHead">Evening 17:00 - 18:00</h1>
+                        </div>
+                        <div class="col-md-7">
+                            <p id="statVal">{{ evenFigures }}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h1 id="statHead">Night 19:00 - 23:00</h1>
+                        </div>
+                        <div class="col-md-7">
+                            <p id="statVal">{{ nightFigures }}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h1 id="statHead">LateNight 24:00 - 5:00</h1>
+                        </div>
+                        <div class="col-md-7">
+                            <p id="statVal">{{ lateFigures }}</p>
+                        </div>
+                        </div>
+            </div>
+            <div id="subtrend" class="col-md-4">
+                    <p id="trendhead">Hit Ratio</p>
+                    <br>
+                    <div class="row" id="hitArea">
+                        <div class="col-md-4">
+                            <h1>Hit</h1>
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{ hit }}</p>
+                        </div>
+                        <div class="col-md-4">
+                                <h1>Miss</h1>
+                            </div>
+                            <div class="col-md-8">
+                                <p>{{ miss }}</p>
+                            </div>
+                            </div>
+            </div>
+            <div id="subtrend" class="col-md">
+                    <p id="trendhead">Most Searched</p>
+                    <table class="table table-dark">
+                            <thead id="tableTop">
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Number Plate</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tableContent">
+                              <tr ng-repeat="topScorer in topScorers | orderBy: 'runAt':true">
+                                <th scope="row">{{$index + 1}}</th>
+                                <td>{{ topScorer.numberPlate }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+            </div>
+        </div>
+    <br>
+    </div>
+    </div>

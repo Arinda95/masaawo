@@ -1,0 +1,32 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light" id="nav">
+    <a class="navbar-brand" href="#!/dash">
+        <img src="images/logo.svg" width="30" height="30" alt=""/>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                    <form class="form-inline">
+                            <input class="form-control mr-sm-6" ng-model="q" id="searchtranslateinput" type="text" placeholder="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" id="searchtranslate" type="submit">Search</button>
+                          </form>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-right">
+            <li class="nav-item" ng-show="authenticated">
+                <a class="nav-link" id="menuelement" href="#!/reports"><i class="fa fa-file"></i></a>
+            </li>
+            <li class="nav-item" ng-show="authenticated">
+                <a class="nav-link" id="menuelement" href="#!/logger"><i class="fa fa-server"></i></a>
+            </li>
+            <li class="nav-item" ng-show="authenticated">
+                <a class="nav-link" id="menuelement" href="#!/messages"><i class="fa fa-envelope"></i></a>
+            </li>
+            <li class="nav-item" ng-show="authenticated">
+                <a class="nav-link" id="menuelement" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>

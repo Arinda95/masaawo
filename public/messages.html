@@ -1,0 +1,99 @@
+<div id="translatebody">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light" id="nav">
+            <a class="navbar-brand" href="#!/dash">
+                <img src="images/logo.svg" width="30" height="30" alt=""/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <input class="form-control mr-sm-6" ng-model="q" id="searchtranslateinput" type="text" placeholder="Search">
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-right">
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/dash"><i class="fa fa-flag"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/reports"><i class="fa fa-star"></i></a>
+                        </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/messages"><i class="fa fa-envelope"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/reported"><i class="fa fa-warning"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" href="#!/users"><i class="fa fa-user-circle"></i></a>
+                    </li>
+                    <li class="nav-item" ng-show="authenticated">
+                            <a class="nav-link" id="menuelement" href="#!/logger"><i class="fa fa-server"></i></a>
+                        </li>
+                    <li class="nav-item" ng-show="authenticated">
+                        <a class="nav-link" id="menuelement" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+<div id="translatecontainer">
+    <br><br>
+    <p id="pagenote">Messages : {{ messagesCount }}</p>
+    <div class="row">
+
+            <table class="table table-striped table-dark">
+                    <thead id="tableTop">
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Sent</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                      <tr dir-paginate="message in messages | filter:q | orderBy: 'sentAt':true | itemsPerPage: 48" data-toggle="modal" data-target="#exampleModal" ng-click="passToModal(message)">
+                        <td>{{ message.name }}</td>
+                        <td>{{ message.email }}</td>
+                        <td>{{ message.type }}</td>
+                        <td>{{ message.sentAt | date:"h:mma 'on' MMM d, y"}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+</div>
+<br>
+<dir-pagination-controls id="pagecontrols"></dir-pagination-controls>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content" id="translatewindow">
+<div class="modal-header" id="translateheader">
+  <h5 class="modal-title" id="exampleModalLabel">{{ individualPlate.sentAt | date:"h:mma 'on' MMM d, y"}}</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closebutton">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" id="translatecontent">
+    <div id="row">
+
+            <div id="infospace">
+                <h4>{{ individualPlate.type }}</h4>
+            </div>
+            <form ng-submit="approve()" id="ht_translate">
+                <h4>Location: {{ individualPlate.name }}</h4>
+                <h4>Location: {{ individualPlate.email }}</h4>
+                <h4>Additional info: {{ individualPlate.content }}</h4>
+            </form>
+    </div>
+</div>
+<div class="modal-footer" id="sc_translate">
+  <button type="button" id="false-submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <a href="mailto:{{individualPlate.email}}" class="btn btn-primary" id="false-submit" class="btn btn-primary" data-dismiss="modal">Reply</a>
+</div>
+</div>
+</div>
+</div>
